@@ -1,14 +1,23 @@
 
 
+var init = function() {
+
+console.log("come on man come on man");
+    document.addEventListener('deviceready',initGravity,false); 
+}
+
+var initgravity = function() {
+    console.log("GRAVITY INIT");
+    initfamous();
+}
+
+var initfamous = function() { 
+    console.log("FAMOUS INIT");
+}
 
 
-define(function(require, exports, module) {
-    // import dependencies
-    var Engine = require('famous/core/Engine');
-    var Modifier = require('famous/core/Modifier');
-    var Transform = require('famous/core/Transform');
-    var ImageSurface = require('famous/surfaces/ImageSurface');
 
+/*
     var cdvinit = function() {
         console.log("CORDOVA INIT FUNCTION");
         document.addEventListener('deviceready', appinit, false); 
@@ -26,7 +35,6 @@ define(function(require, exports, module) {
     var nocel = function (error) {
         console.log("ERROR!: ", error);
     };
-
 
     // create the main context
     var mainContext = Engine.createContext();
@@ -48,3 +56,4 @@ define(function(require, exports, module) {
 
     mainContext.add(centerSpinModifier).add(logo);
 });
+*/
