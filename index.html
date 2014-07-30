@@ -7,20 +7,35 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <link rel="stylesheet" type="text/css" href="src/lib/fontawesome/css/font-awesome.min.css" />
 
         <!-- cordova -->
-        <script type="text/javascript" src="cordova.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript">
+            function cordova_jank() {
+                var cdvsrc = document.createElement('script');
+                cdvsrc.setAttribute('type', 'text/javascript');
+                if (false) {
+                    cdvsrc.setAttribute('src', 'cordova.js');
+                } else {
+                    cdvsrc.setAttribute('src', 'src/shimavodroc.js');
+                }
+                document.getElementsByTagName('head')[0].appendChild(cdvsrc);
+            }
+            cordova_jank();
+        </script>
+
  
         <!-- famous -->
-        <link rel="stylesheet" type="text/css" href="http://code.famo.us/famous/0.2.0/famous.css" />
         <script type="text/javascript" src="lib/famous-omwp-0.2.2.js"></script>
 
         <!-- app code -->
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <script type="text/javascript" src="src/gravity.js"></script>
 
+<!--        <script type="text/javascript" src"src/cordovajank.js"></script> -->
+
         <script type="text/javascript">
+            
             document.addEventListener("deviceready", function(e) {
                 console.log("device ready firing");
                 app.init();
