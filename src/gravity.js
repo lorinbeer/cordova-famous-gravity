@@ -1,16 +1,12 @@
 var app = {
     init : function() {
-        
-        console.log(famous.core.Engine);
-        
-        this.Engine = famous.core.Engine;
-        this.Modifier = famous.core.Modifier;
-        this.Transform = famous.core.Transform;
-        this.ImageSurface = famous.surfaces.ImageSurface;
+        var Engine = famous.core.Engine,
+            Modifier = famous.core.Modifier,
+            Transform = famous.core.Transform,
+            ImageSurface = famous.surfaces.ImageSurface;
 
         var mainContext = Engine.createContext();
-
-    // your app here
+        // your app here
         var logo = new ImageSurface({
             size: [200, 200],
             content: 'http://code.famo.us/assets/famous_logo.svg',
