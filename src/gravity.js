@@ -1,41 +1,36 @@
+var app = {
+    init : function() {
+        
+        console.log(famous.core.Engine);
+        
+        this.Engine = famous.core.Engine;
+        this.Modifier = famous.core.Modifier;
+        this.Transform = famous.core.Transform;
+        this.ImageSurface = famous.surfaces.ImageSurface;
 
+        var mainContext = Engine.createContext();
 
-var init = function() {
+    // your app here
+        var logo = new ImageSurface({
+            size: [200, 200],
+            content: 'http://code.famo.us/assets/famous_logo.svg',
+            classes: ['double-sided']
+        });
 
-console.log("come on man come on man");
-    document.addEventListener('deviceready',initGravity,false); 
-}
+        var initialTime = Date.now();
+        var centerSpinModifier = new Modifier({
+            origin: [0.5, 0.5],
+            transform : function(){
+                return Transform.rotateY(.002 * (Date.now() - initialTime));
+            }
+        });
 
-var initgravity = function() {
-    console.log("GRAVITY INIT");
-    initfamous();
-}
-
-var initfamous = function() { 
-    console.log("FAMOUS INIT");
-}
-
+        mainContext.add(centerSpinModifier).add(logo);
+    }
+};
 
 
 /*
-    var cdvinit = function() {
-        console.log("CORDOVA INIT FUNCTION");
-        document.addEventListener('deviceready', appinit, false); 
-    };
-
-    var appinit = function() {
-        console.log("APPINIT: watching acceleration");
-        navigator.watchAcceleration(excel,noxel,100);
-    }
-
-    var excel = function (acceleration) {
-        console.log(acceleration);
-    };
-
-    var nocel = function (error) {
-        console.log("ERROR!: ", error);
-    };
-
     // create the main context
     var mainContext = Engine.createContext();
 
@@ -55,5 +50,4 @@ var initfamous = function() {
     });
 
     mainContext.add(centerSpinModifier).add(logo);
-});
 */
