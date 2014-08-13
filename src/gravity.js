@@ -15,7 +15,7 @@ var app = {
 
         var initialTime = Date.now();
         var centerSpinModifier = new Modifier({
-            origin: [0.5, 0.5],
+            origin: [0.5,0.0],
             transform : function(){
                 return Transform.rotateY(.002 * (Date.now() - initialTime));
             }
