@@ -5,21 +5,29 @@ var app = {
             Transform = famous.core.Transform,
             ImageSurface = famous.surfaces.ImageSurface;
 
-        var mainContext = Engine.createContext();
-        // your app here
-        var logo = new ImageSurface({
+        var mainContext,
+            logo,
+            centerSpinModifier,
+            time;
+
+        mainContext = Engine.createContext();
+        
+        logo = new ImageSurface({
             size: [200, 200],
-            content: 'http://code.famo.us/assets/famous_logo.svg',
+            content: 'famous_logo.svg',
             classes: ['double-sided']
         });
 
-        var initialTime = Date.now();
-        var centerSpinModifier = new Modifier({
+        time = Date.now();
+
+        centerSpinModifier = new Modifier({
             origin: [0.5,0.0],
             transform : function(){
-                return Transform.rotateY(.002 * (Date.now() - initialTime));
+                return Transform.rotateY(.002 * (Date.now() - time));
             }
         });
+
+
 
         mainContext.add(centerSpinModifier).add(logo);
     }
